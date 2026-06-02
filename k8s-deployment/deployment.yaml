@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-app
+spec:
+  selector:
+    matchLabels:
+      app: nodejs
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: nodejs
+    spec:
+      containers:
+      - name: simple-app
+        image: simple-app:latest
+        ports:
+        - containerPort: 3000
+        env:
+        - name: PORT
+          value: "3000"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 3000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+       readinessProbe:
+         httpGet:
+           path: /health
+           port: 3000
+        initialDelaySeconds: 30
+        periodSeconds: 10
+
+
