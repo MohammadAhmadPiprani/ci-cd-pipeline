@@ -4,7 +4,7 @@ const port = process.env.Port || 3000;
 
 app.get('/', (req, res) => {
   res.json({
-    message: "THIS IS A CICD LAB JUST FOR PRACTICE AND INTEGRATE WITH ARGOCD AND JENKINS",
+    message: "THIS IS A CICD LAB",
     version: "1.0.0",
     timestamp: new Date().toISOString()
   });
