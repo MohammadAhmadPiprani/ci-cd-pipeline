@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: sample-app
-        image: sample-app:11
+        image: sample-app:12
         ports:
         - containerPort: 3000
         env:
